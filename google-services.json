@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "218941441986",
+    "firebase_url": "https://intergalactictrucking-5c601.firebaseio.com",
+    "project_id": "intergalactictrucking-5c601",
+    "storage_bucket": "intergalactictrucking-5c601.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218941441986:android:48dfb81c882b675b",
+        "android_client_info": {
+          "package_name": "com.example.intergalactictrucking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "218941441986-sbskg2v3pq7o1gfbsuh56fj6828rgrpk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.intergalactictrucking",
+            "certificate_hash": "116e6743667acfb055fe18c7e1d2c563516ca263"
+          }
+        },
+        {
+          "client_id": "218941441986-oid7l2cl1t54nt8csoksarg7p9hrst41.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_GCmktGRjXK5bMa8zZhMZgsB3uYz1Wlw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "218941441986-oid7l2cl1t54nt8csoksarg7p9hrst41.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
