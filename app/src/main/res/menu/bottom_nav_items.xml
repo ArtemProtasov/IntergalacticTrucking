@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/action_search"
+        android:icon="@drawable/ic_search"
         android:title="Поиск" />
     <item android:id="@+id/action_filtres"
+        android:icon="@drawable/ic_filtres"
         android:title="Фильтры" />
     <item android:id="@+id/action_history"
-        android:title="История" />
+        android:title="История"
+        android:icon="@drawable/ic_history"/>
     <item android:id="@+id/action_on_car"
+        android:icon="@drawable/ic_shippings"
         android:title="По машинам" />
 </menu>
