@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/signUpDataLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="48dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/signUpLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="48dp"
+            android:text="Регистрация"
+            android:textSize="48sp" />
+
+            <EditText
+                android:id="@+id/inputLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:hint="Email"
+                android:imeOptions="actionNext"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1"
+                android:nextFocusForward="@id/inputPassword"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/inputPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:hint="Пароль"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:nextFocusForward="@id/inputRepeatPassword"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/inputRepeatPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:hint="Повторите пароль"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:nextFocusForward="@id/inputCity"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/inputCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:hint="Город"
+                android:imeOptions="actionNext"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1"
+                android:nextFocusForward="@id/inputNameCompany"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/inputNameCompany"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:hint="Название компании"
+                android:imeOptions="actionNext"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1"
+                android:nextFocusForward="@id/inputFace"
+                android:layout_marginTop="16dp"/>
+
+            <CheckBox
+                android:id="@+id/inputFace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:hint="Я - частное лицо"
+                android:imeOptions="actionNext"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1"
+                android:nextFocusForward="@id/signUpButton"
+                android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/signUpButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:shadowColor="#A8A8A8"
+            android:shadowRadius="5"
+            android:text="Зарегистрироваться"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
