@@ -86,4 +86,5 @@ dependencies {
     // ButterKnife
     implementation "com.jakewharton:butterknife:$butter_knife_version"
     annotationProcessor "com.jakewharton:butterknife-compiler:$butter_knife_version"
+    implementation 'com.google.firebase:firebase-auth:17.0.0'
 }
