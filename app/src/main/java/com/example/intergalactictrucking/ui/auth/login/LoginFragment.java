@@ -1,14 +1,11 @@
 package com.example.intergalactictrucking.ui.auth.login;
 
-import android.content.Intent;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.intergalactictrucking.R;
 import com.example.intergalactictrucking.base.BaseFragment;
-import com.google.android.material.textfield.TextInputEditText;
 
 import butterknife.BindView;
 
@@ -31,11 +28,8 @@ public class LoginFragment extends BaseFragment {
 
     @Override
     protected void setupView() {
-        textViewSignUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        textViewSignUpButton.setOnClickListener(v -> {
 
-            }
         });
     }
 }

@@ -1,10 +1,7 @@
 package com.example.intergalactictrucking.ui.auth.registration;
 
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-
 import com.example.intergalactictrucking.R;
 import com.example.intergalactictrucking.base.BaseFragment;
 
@@ -28,11 +25,8 @@ public class RegistrationFragment extends BaseFragment {
 
     @Override
     protected void setupView() {
-        buttonsignUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        buttonsignUpButton.setOnClickListener(v -> {
 
-            }
         });
     }
 }
