@@ -3,13 +3,13 @@
     <item android:id="@+id/searchFragment"
         android:icon="@drawable/ic_search"
         android:title="Поиск" />
-    <item android:id="@+id/action_filtres"
+    <item android:id="@+id/filtresFragment"
         android:icon="@drawable/ic_filtres"
         android:title="Фильтры" />
-    <item android:id="@+id/action_history"
+    <item android:id="@+id/historyFragment"
         android:title="История"
         android:icon="@drawable/ic_history"/>
-    <item android:id="@+id/action_on_car"
+    <item android:id="@+id/onCarFragment"
         android:icon="@drawable/ic_shippings"
         android:title="По машинам" />
     <item android:id="@+id/settingsFragment"

@@ -11,4 +11,16 @@
         android:id="@+id/settingsFragment"
         android:name="com.example.intergalactictrucking.ui.settings.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/filtresFragment"
+        android:name="com.example.intergalactictrucking.ui.filtres.FiltresFragment"
+        android:label="FiltresFragment" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.intergalactictrucking.ui.history.HistoryFragment"
+        android:label="HistoryFragment" />
+    <fragment
+        android:id="@+id/onCarFragment"
+        android:name="com.example.intergalactictrucking.ui.onCar.OnCarFragment"
+        android:label="OnCarFragment" />
 </navigation>
