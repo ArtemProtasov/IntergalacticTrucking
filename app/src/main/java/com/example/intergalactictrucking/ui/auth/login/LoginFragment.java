@@ -36,12 +36,16 @@ public class LoginFragment extends BaseFragment {
 
         editTextLogin = getView().findViewById(R.id.inputLogin);
         editTextPassword = getView().findViewById(R.id.inputPassword);
-        logInButton = getView().findViewById(R.id.logInButton);
+        logInButton = getView().findViewById(R.id.logIn);
         textViewSignUpButton = getView().findViewById(R.id.signUpButton);
 
         textViewSignUpButton.setOnClickListener(v ->
                 navController.navigate(R.id.action_loginFragment_to_registrationFragment)
         );
+
+        logInButton.setOnClickListener(v -> {
+            navController.navigate(R.id.action_loginFragment_to_mainActivity2);
+        });
 
     }
 }

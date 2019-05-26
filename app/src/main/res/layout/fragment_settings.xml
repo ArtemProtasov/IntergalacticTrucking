@@ -64,14 +64,14 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/changeNameButton"
+                android:id="@+id/changeName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:text="Изменить имя" />
 
             <Button
-                android:id="@+id/changePasswordButton"
+                android:id="@+id/changePassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -80,7 +80,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/logOutButton"
+            android:id="@+id/logOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"

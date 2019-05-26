@@ -4,6 +4,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+
 import com.example.intergalactictrucking.R;
 import com.example.intergalactictrucking.base.BaseFragment;
 
@@ -11,24 +14,18 @@ import butterknife.BindView;
 
 public class SearchFragment extends BaseFragment {
 
-    @BindView(R.id.editText_whence)
-    EditText editText_whence;
-    @BindView(R.id.editText_where)
-    EditText editText_where;
-    @BindView(R.id.editText_weight)
-    EditText editText_weight;
-    @BindView(R.id.editText_volume)
-    EditText editText_volume;
-    @BindView(R.id.editText_body_type)
-    EditText editText_body_type;
-    @BindView(R.id.editText_shipment_date)
-    EditText editText_shipment_date;
-    @BindView(R.id.button_clean)
-    Button button_clean;
-    @BindView(R.id.button_save_filters)
-    Button button_save_filters;
-    @BindView(R.id.button_search_shipments)
-    Button button_search_shipments;
+    private NavController navController;
+
+
+    EditText editTextwhence;
+    EditText editTextwhere;
+    EditText editTextweight;
+    EditText editTextvolume;
+    EditText editTextbodytype;
+    EditText editTextshipmentdate;
+    Button buttonclean;
+    Button buttonsavefilters;
+    Button buttonsearchshipments;
 
     @Override
     protected int contentResource() {
@@ -37,6 +34,21 @@ public class SearchFragment extends BaseFragment {
 
     @Override
     protected void setupView() {
+        navController = Navigation.findNavController(getActivity(), R.id.main_nav_fragment);
+
+        editTextwhence = getView().findViewById(R.id.whence);
+        editTextwhere = getView().findViewById(R.id.where);
+        editTextweight = getView().findViewById(R.id.weight);
+        editTextvolume = getView().findViewById(R.id.volume);
+        editTextbodytype = getView().findViewById(R.id.bodytype);
+        editTextshipmentdate = getView().findViewById(R.id.shipmentdate);
+        buttonclean = getView().findViewById(R.id.clean);
+        buttonsavefilters = getView().findViewById(R.id.savefilters);
+        buttonsearchshipments = getView().findViewById(R.id.searchshipments);
+
+        buttonsearchshipments.setOnClickListener(v -> {
+
+        });
 
     }
 }
