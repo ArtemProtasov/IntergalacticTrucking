@@ -13,9 +13,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public abstract class BaseFragment extends Fragment {
-    protected FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    protected DatabaseReference databaseReference = null;
-    protected FirebaseAuth firebaseAuth = null;
+
+//    protected FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+//    protected DatabaseReference databaseReference = null;
+//    protected FirebaseAuth firebaseAuth = null;
 
 
     protected abstract int contentResource();
@@ -52,8 +53,8 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        firebaseAuth = setupFirebaseAuth();
-        databaseReference = setupDatabase();
+//        firebaseAuth = setupFirebaseAuth();
+//        databaseReference = setupDatabase();
         setupViewModel();
         setupView();
     }

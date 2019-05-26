@@ -28,8 +28,6 @@ public class LoginFragment extends BaseFragment {
 
     @Override
     protected void setupView() {
-        textViewSignUpButton.setOnClickListener(v -> {
 
-        });
     }
 }

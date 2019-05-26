@@ -6,10 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
-    protected FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    protected DatabaseReference databaseReference = null;
+//    protected FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+//    protected DatabaseReference databaseReference = null;
 
     protected abstract int contentResource();
 
@@ -28,7 +28,7 @@ abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(contentResource());
         setupView();
-        databaseReference = setupDatabase();
+//        databaseReference = setupDatabase();
         setupViewModel();
     }
 }

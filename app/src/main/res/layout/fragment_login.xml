@@ -23,30 +23,30 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="48dp"
             android:text="Авторизация"
-            android:textSize="48sp" />
+            android:textSize="38sp" />
 
-            <EditText
-                android:id="@+id/inputLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="8dp"
-                android:hint="Email"
-                android:imeOptions="actionNext"
-                android:inputType="textNoSuggestions"
-                android:maxLines="1"
-                android:nextFocusForward="@id/inputPassword" />
+        <EditText
+            android:id="@+id/inputLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="8dp"
+            android:hint="Email"
+            android:imeOptions="actionNext"
+            android:inputType="textNoSuggestions"
+            android:maxLines="1"
+            android:nextFocusForward="@id/inputPassword" />
 
-            <EditText
-                android:id="@+id/inputPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="8dp"
-                android:hint="Пароль"
-                android:imeOptions="actionNext"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:nextFocusForward="@id/logInButton"
-                android:layout_marginTop="16dp"/>
+        <EditText
+            android:id="@+id/inputPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="8dp"
+            android:hint="Пароль"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:nextFocusForward="@id/logInButton" />
 
         <Button
             android:id="@+id/logInButton"
@@ -74,11 +74,13 @@
                 android:id="@+id/signUpButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
                 android:clickable="true"
+                android:ellipsize="end"
                 android:focusable="true"
+                android:maxLines="1"
                 android:text="Зарегистрироваться"
                 android:textSize="12sp"
-                android:layout_marginStart="4dp"
                 android:textStyle="bold" />
 
         </LinearLayout>

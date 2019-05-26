@@ -1,15 +1,16 @@
 package com.example.intergalactictrucking;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import com.example.intergalactictrucking.base.BaseActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        //Test git
-        //Test Andrey
+    protected int contentResource() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void setupView() {
+
     }
 }

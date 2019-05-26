@@ -12,4 +12,7 @@
     <item android:id="@+id/action_on_car"
         android:icon="@drawable/ic_shippings"
         android:title="По машинам" />
+    <item android:id="@+id/action_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="Настройки" />
 </menu>
