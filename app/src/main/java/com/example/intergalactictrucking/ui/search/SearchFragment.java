@@ -37,7 +37,6 @@ public class SearchFragment extends BaseFragment {
 
     @Override
     protected void setupView() {
-        button_search_shipments.setOnClickListener(v -> {
 
-        });
+    }
 }

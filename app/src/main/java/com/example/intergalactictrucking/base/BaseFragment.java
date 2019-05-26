@@ -7,17 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
+import butterknife.ButterKnife;
 
 
 public abstract class BaseFragment extends Fragment {
-
-//    protected FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-//    protected DatabaseReference databaseReference = null;
-//    protected FirebaseAuth firebaseAuth = null;
-
 
     protected abstract int contentResource();
 
@@ -35,15 +29,6 @@ public abstract class BaseFragment extends Fragment {
 
     }
 
-    protected DatabaseReference setupDatabase() {
-        return null;
-    }
-
-    protected FirebaseAuth setupFirebaseAuth() {
-        return null;
-    }
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,10 +36,14 @@ public abstract class BaseFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        firebaseAuth = setupFirebaseAuth();
-//        databaseReference = setupDatabase();
+        ButterKnife.bind(view);
         setupViewModel();
         setupView();
     }

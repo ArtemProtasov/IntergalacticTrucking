@@ -4,22 +4,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+
 import com.example.intergalactictrucking.R;
 import com.example.intergalactictrucking.base.BaseFragment;
 
-import butterknife.BindView;
-
 public class LoginFragment extends BaseFragment {
 
-    @BindView(R.id.inputLogin)
-    EditText editTextLogin;
-    @BindView(R.id.inputPassword)
-    EditText editTextPassword;
-    @BindView(R.id.logInButton)
-    Button logInButton;
-    @BindView(R.id.signUpButton)
-    TextView textViewSignUpButton;
+    private NavController navController;
 
+    EditText editTextLogin;
+    EditText editTextPassword;
+    Button logInButton;
+    TextView textViewSignUpButton;
 
     @Override
     protected int contentResource() {
@@ -27,7 +25,23 @@ public class LoginFragment extends BaseFragment {
     }
 
     @Override
+    protected void setupViewModel() {
+        super.setupViewModel();
+    }
+
+    @Override
     protected void setupView() {
+
+        navController = Navigation.findNavController(getActivity(), R.id.auth_nav_fragment);
+
+        editTextLogin = getView().findViewById(R.id.inputLogin);
+        editTextPassword = getView().findViewById(R.id.inputPassword);
+        logInButton = getView().findViewById(R.id.logInButton);
+        textViewSignUpButton = getView().findViewById(R.id.signUpButton);
+
+        textViewSignUpButton.setOnClickListener(v ->
+                navController.navigate(R.id.action_loginFragment_to_registrationFragment)
+        );
 
     }
 }

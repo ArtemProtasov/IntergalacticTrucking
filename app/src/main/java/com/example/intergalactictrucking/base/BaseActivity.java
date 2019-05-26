@@ -3,13 +3,10 @@ package com.example.intergalactictrucking.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
+import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity {
-
-//    protected FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-//    protected DatabaseReference databaseReference = null;
 
     protected abstract int contentResource();
 
@@ -19,16 +16,12 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     }
 
-    protected DatabaseReference setupDatabase() {
-        return null;
-    }
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ButterKnife.bind(this);
         setContentView(contentResource());
         setupView();
-//        databaseReference = setupDatabase();
         setupViewModel();
     }
 }
