@@ -36,6 +36,10 @@ public abstract class BaseFragment extends Fragment {
 
     }
 
+    protected void setupViewById() {
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,6 +55,7 @@ public abstract class BaseFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(view);
+        setupViewById();
         setupViewModel();
         setupView();
     }
