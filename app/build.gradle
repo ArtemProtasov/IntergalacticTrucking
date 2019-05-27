@@ -1,9 +1,5 @@
 apply plugin: 'com.android.application'
 
-apply plugin: 'com.android.application'
-
-apply plugin: 'com.jakewharton.butterknife'
-
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -97,10 +93,6 @@ dependencies {
     // Support design
     implementation 'com.google.android.material:material:1.0.0'
 
-    // ButterKnife
-    implementation "com.jakewharton:butterknife:$butter_knife_version"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$butter_knife_version"
-
     // Firebase Auth
     implementation 'com.google.firebase:firebase-auth:17.0.0'
 
@@ -111,6 +103,9 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:3.14.2"
 
     // Parceler
-    implementation 'org.parceler:parceler-api:1.1.9'
-    annotationProcessor 'org.parceler:parceler:1.1.9'
+//    implementation "org.parceler:parceler-api:1.1.9"
+//    annotationProcessor 'org.parceler:parceler:1.1.9'
+
 }
+
+apply plugin: 'com.google.gms.google-services'

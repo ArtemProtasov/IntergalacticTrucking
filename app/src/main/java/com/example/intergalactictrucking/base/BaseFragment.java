@@ -12,8 +12,6 @@ import android.view.ViewGroup;
 
 import com.example.intergalactictrucking.utils.UtilsDialog;
 
-import butterknife.ButterKnife;
-
 
 public abstract class BaseFragment extends Fragment {
 
@@ -54,7 +52,6 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.bind(view);
         setupViewById();
         setupViewModel();
         setupView();

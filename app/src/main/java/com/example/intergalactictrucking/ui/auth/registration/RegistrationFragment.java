@@ -9,12 +9,14 @@ import androidx.navigation.Navigation;
 
 import com.example.intergalactictrucking.R;
 import com.example.intergalactictrucking.base.BaseFragment;
-
-import butterknife.BindView;
+import com.example.intergalactictrucking.utils.UtilsDialog;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class RegistrationFragment extends BaseFragment {
 
     private NavController navController;
+    private FirebaseAuth firebaseAuth;
 
     EditText editTextinputLogin;
     EditText editTextinputPassword;
@@ -30,8 +32,7 @@ public class RegistrationFragment extends BaseFragment {
     }
 
     @Override
-    protected void setupView() {
-
+    protected void setupViewById() {
         navController = Navigation.findNavController(getActivity(), R.id.auth_nav_fragment);
 
         editTextinputLogin = getView().findViewById(R.id.inputLogin);
@@ -42,8 +43,24 @@ public class RegistrationFragment extends BaseFragment {
         checkBoxinputFace = getView().findViewById(R.id.inputFace);
         buttonsignUp = getView().findViewById(R.id.signUp);
 
-        buttonsignUp.setOnClickListener(v -> {
+        firebaseAuth = FirebaseAuth.getInstance();
+    }
 
+    @Override
+    protected void setupView() {
+        buttonsignUp.setOnClickListener(v -> {
+            if(editTextinputPassword.getText().toString() == editTextinputRepeatPassword.getText().toString()) {
+                firebaseAuth.createUserWithEmailAndPassword(editTextinputLogin.getText().toString(), editTextinputPassword.getText().toString())
+                        .addOnCompleteListener(getActivity(), task -> {
+                            if (task.isSuccessful()) {
+                                navController.navigate(R.id.action_loginFragment_to_mainActivity2);
+                            } else {
+                                UtilsDialog.showBasicDialog(getActivity(), "Ok", "Регистрация не удалась. Повторите попытку...");
+                            }
+                        });
+            } else {
+                UtilsDialog.showBasicDialog(getActivity(), "Ok", "Пароли не совпадают!");
+            }
         });
     }
 }

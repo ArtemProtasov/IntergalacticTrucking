@@ -25,7 +25,6 @@ buildscript {
     ext.firebase_auth_version = '16.2.0'
     ext.firebase_auth_ui_version = '4.3.2'
     ext.firebase_storage_version = '16.1.0'
-    ext.butter_knife_version = '9.0.0-rc2'
 
     repositories {
         google()
@@ -35,7 +34,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.1'
         classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:$nav_controller_version"
-        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0-rc2'
+        classpath 'com.google.gms:google-services:4.2.0'
     }
 }
 
