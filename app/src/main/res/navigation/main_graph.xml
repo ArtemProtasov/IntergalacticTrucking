@@ -10,7 +10,11 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.intergalactictrucking.ui.settings.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_authActivity"
+            app:destination="@id/authActivity" />
+    </fragment>
     <fragment
         android:id="@+id/filtresFragment"
         android:name="com.example.intergalactictrucking.ui.filtres.FiltresFragment"
@@ -23,4 +27,8 @@
         android:id="@+id/onCarFragment"
         android:name="com.example.intergalactictrucking.ui.onCar.OnCarFragment"
         android:label="OnCarFragment" />
+    <activity
+        android:id="@+id/authActivity"
+        android:name="com.example.intergalactictrucking.ui.auth.AuthActivity"
+        android:label="AuthActivity" />
 </navigation>

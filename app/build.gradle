@@ -9,6 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -105,6 +106,9 @@ dependencies {
     // Parceler
 //    implementation "org.parceler:parceler-api:1.1.9"
 //    annotationProcessor 'org.parceler:parceler:1.1.9'
+
+    // Multidex
+    implementation 'com.android.support:multidex:1.0.3'
 
 }
 

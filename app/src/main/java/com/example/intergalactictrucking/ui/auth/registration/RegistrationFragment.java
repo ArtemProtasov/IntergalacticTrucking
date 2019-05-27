@@ -11,7 +11,6 @@ import com.example.intergalactictrucking.R;
 import com.example.intergalactictrucking.base.BaseFragment;
 import com.example.intergalactictrucking.utils.UtilsDialog;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class RegistrationFragment extends BaseFragment {
 
@@ -49,17 +48,17 @@ public class RegistrationFragment extends BaseFragment {
     @Override
     protected void setupView() {
         buttonsignUp.setOnClickListener(v -> {
-            if(editTextinputPassword.getText().toString() == editTextinputRepeatPassword.getText().toString()) {
+            if (editTextinputPassword.getText().toString().equals(editTextinputRepeatPassword.getText().toString())) {
                 firebaseAuth.createUserWithEmailAndPassword(editTextinputLogin.getText().toString(), editTextinputPassword.getText().toString())
                         .addOnCompleteListener(getActivity(), task -> {
                             if (task.isSuccessful()) {
-                                navController.navigate(R.id.action_loginFragment_to_mainActivity2);
+                                navController.navigate(R.id.action_registrationFragment_to_mainActivity);
                             } else {
-                                UtilsDialog.showBasicDialog(getActivity(), "Ok", "Регистрация не удалась. Повторите попытку...");
+                                UtilsDialog.showBasicDialog(getActivity(), "Ok", "Регистрация не удалась. Повторите попытку...").show();
                             }
                         });
             } else {
-                UtilsDialog.showBasicDialog(getActivity(), "Ok", "Пароли не совпадают!");
+                UtilsDialog.showBasicDialog(getActivity(), "Ok", "Пароли не совпадают!").show();
             }
         });
     }

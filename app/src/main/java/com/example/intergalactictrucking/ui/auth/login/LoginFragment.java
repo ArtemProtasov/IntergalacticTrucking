@@ -60,11 +60,11 @@ public class LoginFragment extends BaseFragment {
 
         logInButton.setOnClickListener(v -> {
             firebaseAuth.signInWithEmailAndPassword(editTextLogin.getText().toString(), editTextPassword.getText().toString())
-                    .addOnCompleteListener((Executor) this, task -> {
+                    .addOnCompleteListener(getActivity(), task -> {
                         if(task.isSuccessful()) {
                             navController.navigate(R.id.action_loginFragment_to_mainActivity2);
                         } else {
-                            UtilsDialog.showBasicDialog(getActivity(), "Ok", "Авторизация не удалась. Повторите попытку...");
+                            UtilsDialog.showBasicDialog(getActivity(), "Ok", "Авторизация не удалась. Повторите попытку...").show();
                         }
                     });
         });
