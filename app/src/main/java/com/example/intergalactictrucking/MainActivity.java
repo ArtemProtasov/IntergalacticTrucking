@@ -1,6 +1,6 @@
 package com.example.intergalactictrucking;
 
-import android.support.design.widget.BottomNavigationView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
