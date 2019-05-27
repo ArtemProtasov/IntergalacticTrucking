@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Межгалактические перевозки</string>
+
+    <string name="basic_required">Must be Required</string>
+    <string name="check_connection">Make sure your network connection is active and try again.</string>
+    <string name="check_server_connection">Sorry, server could not process your request, Please try again later.</string>
 </resources>

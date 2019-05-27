@@ -1,5 +1,7 @@
 package com.example.intergalactictrucking.base;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,10 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.intergalactictrucking.utils.UtilsDialog;
+
 import butterknife.ButterKnife;
 
 
 public abstract class BaseFragment extends Fragment {
+
+    protected ProgressDialog progressDialog;
+    protected AlertDialog alertDialog;
 
     protected abstract int contentResource();
 
@@ -46,5 +53,12 @@ public abstract class BaseFragment extends Fragment {
         ButterKnife.bind(view);
         setupViewModel();
         setupView();
+    }
+
+    @Override
+    public void onDestroy() {
+        UtilsDialog.dismissLoading(progressDialog);
+        UtilsDialog.dismissDialog(alertDialog);
+        super.onDestroy();
     }
 }

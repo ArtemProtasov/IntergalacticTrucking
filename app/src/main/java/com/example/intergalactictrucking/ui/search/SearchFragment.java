@@ -2,20 +2,21 @@ package com.example.intergalactictrucking.ui.search;
 
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.intergalactictrucking.R;
 import com.example.intergalactictrucking.base.BaseFragment;
+import com.example.intergalactictrucking.retrofit.RestController;
+import com.example.intergalactictrucking.utils.ErrorUtils;
+import com.example.intergalactictrucking.utils.UtilsDialog;
 
-import butterknife.BindView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SearchFragment extends BaseFragment {
-
-    private NavController navController;
-
 
     EditText editTextwhence;
     EditText editTextwhere;
@@ -26,6 +27,7 @@ public class SearchFragment extends BaseFragment {
     Button buttonclean;
     Button buttonsavefilters;
     Button buttonsearchshipments;
+    private NavController navController;
 
     @Override
     protected int contentResource() {
@@ -50,5 +52,32 @@ public class SearchFragment extends BaseFragment {
 
         });
 
+    }
+
+    /**
+     * Не удалять! метод для примера написания rest запросов
+     */
+    private void testRest() {
+        // Перед запросом мы можем показать progressDialog
+        UtilsDialog.showLoading(getActivity(), progressDialog);
+        progressDialog.show();
+
+        RestController.CLIENT.getTestObject().enqueue(new Callback<Object>() {
+
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+                UtilsDialog.dismissLoading(progressDialog);
+                if (response.isSuccessful()) {
+                    // Тут у нас успех. Значит, выполняем всю нужную нам работу
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable t) {
+                // Тут показываем диалог и сообщаем об ошибке
+                UtilsDialog.dismissLoading(progressDialog);
+                UtilsDialog.showBasicDialog(getActivity(), "Ok", ErrorUtils.parseError(t.toString()).getMessage()).show();
+            }
+        });
     }
 }
