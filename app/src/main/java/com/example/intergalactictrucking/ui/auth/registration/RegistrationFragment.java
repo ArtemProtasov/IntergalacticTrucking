@@ -4,18 +4,28 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.intergalactictrucking.R;
 import com.example.intergalactictrucking.base.BaseFragment;
+import com.example.intergalactictrucking.data.UserProfile;
 import com.example.intergalactictrucking.utils.UtilsDialog;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.UUID;
 
 public class RegistrationFragment extends BaseFragment {
 
     private NavController navController;
     private FirebaseAuth firebaseAuth;
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = database.getReference("userProfile");
 
     EditText editTextinputLogin;
     EditText editTextinputPassword;
@@ -24,6 +34,8 @@ public class RegistrationFragment extends BaseFragment {
     EditText editTextinputNameCompany;
     CheckBox checkBoxinputFace;
     Button buttonsignUp;
+    EditText editTextUserFullName;
+    EditText editTextUserPhoneNumber;
 
     @Override
     protected int contentResource() {
@@ -39,8 +51,10 @@ public class RegistrationFragment extends BaseFragment {
         editTextinputRepeatPassword = getView().findViewById(R.id.inputRepeatPassword);
         editTextinputCity = getView().findViewById(R.id.inputCity);
         editTextinputNameCompany = getView().findViewById(R.id.inputNameCompany);
-        checkBoxinputFace = getView().findViewById(R.id.inputFace);
+        checkBoxinputFace = getView().findViewById(R.id.checkboxPrivatePerson);
         buttonsignUp = getView().findViewById(R.id.signUp);
+        editTextUserFullName = getView().findViewById(R.id.inputUserFullName);
+        editTextUserPhoneNumber = getView().findViewById(R.id.inputPhoneNumber);
 
         firebaseAuth = FirebaseAuth.getInstance();
     }
@@ -52,7 +66,21 @@ public class RegistrationFragment extends BaseFragment {
                 firebaseAuth.createUserWithEmailAndPassword(editTextinputLogin.getText().toString(), editTextinputPassword.getText().toString())
                         .addOnCompleteListener(getActivity(), task -> {
                             if (task.isSuccessful()) {
-                                navController.navigate(R.id.action_registrationFragment_to_mainActivity);
+                                UserProfile userProfile = new UserProfile();
+                                userProfile.setUserUID(firebaseAuth.getCurrentUser().getUid());
+                                userProfile.setUserFullName(editTextUserFullName.getText().toString());
+                                userProfile.setUserCity(editTextinputCity.getText().toString());
+                                userProfile.setUserPhoneNumber(editTextUserPhoneNumber.getText().toString());
+                                userProfile.setUserPrivatePerson(checkBoxinputFace.isChecked());
+                                userProfile.setUserCompanyName(editTextinputNameCompany.getText().toString());
+                                databaseReference.child(firebaseAuth.getCurrentUser().getUid())
+                                        .setValue(userProfile).addOnCompleteListener(task1 -> {
+                                            if(task.isSuccessful()) {
+                                                navController.navigate(R.id.action_registrationFragment_to_mainActivity);
+                                            } else {
+                                                UtilsDialog.showBasicDialog(getActivity(), "Ok", "Регистрация не удалась. Повторите попытку...").show();
+                                            }
+                                        });
                             } else {
                                 UtilsDialog.showBasicDialog(getActivity(), "Ok", "Регистрация не удалась. Повторите попытку...").show();
                             }

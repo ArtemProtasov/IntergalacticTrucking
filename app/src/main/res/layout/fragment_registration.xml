@@ -63,6 +63,18 @@
                 android:imeOptions="actionNext"
                 android:inputType="textPassword"
                 android:maxLines="1"
+                android:nextFocusForward="@id/inputUserFullName" />
+
+            <EditText
+                android:id="@+id/inputUserFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawablePadding="8dp"
+                android:hint="ФИО"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
                 android:nextFocusForward="@id/inputCity" />
 
             <EditText
@@ -75,6 +87,30 @@
                 android:imeOptions="actionNext"
                 android:inputType="textNoSuggestions"
                 android:maxLines="1"
+                android:nextFocusForward="@id/inputPhoneNumber" />
+
+            <EditText
+                android:id="@+id/inputPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawablePadding="8dp"
+                android:hint="Номер телефона"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:nextFocusForward="@id/checkboxPrivatePerson" />
+
+            <CheckBox
+                android:id="@+id/checkboxPrivatePerson"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawablePadding="8dp"
+                android:hint="Я - частное лицо"
+                android:imeOptions="actionNext"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1"
                 android:nextFocusForward="@id/inputNameCompany" />
 
             <EditText
@@ -84,18 +120,6 @@
                 android:layout_marginTop="16dp"
                 android:drawablePadding="8dp"
                 android:hint="Название компании"
-                android:imeOptions="actionNext"
-                android:inputType="textNoSuggestions"
-                android:maxLines="1"
-                android:nextFocusForward="@id/inputFace" />
-
-            <CheckBox
-                android:id="@+id/inputFace"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:drawablePadding="8dp"
-                android:hint="Я - частное лицо"
                 android:imeOptions="actionNext"
                 android:inputType="textNoSuggestions"
                 android:maxLines="1"
