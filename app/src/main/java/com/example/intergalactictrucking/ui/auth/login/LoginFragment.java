@@ -1,23 +1,19 @@
 package com.example.intergalactictrucking.ui.auth.login;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.intergalactictrucking.R;
 import com.example.intergalactictrucking.base.BaseFragment;
 import com.example.intergalactictrucking.utils.UtilsDialog;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.concurrent.Executor;
 
 public class LoginFragment extends BaseFragment {
 
@@ -54,6 +50,41 @@ public class LoginFragment extends BaseFragment {
     @Override
     protected void setupView() {
 
+        checkInput();
+
+        editTextLogin.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                checkInput();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        editTextPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                checkInput();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         textViewSignUpButton.setOnClickListener(v ->
                 navController.navigate(R.id.action_loginFragment_to_registrationFragment)
         );
@@ -69,6 +100,10 @@ public class LoginFragment extends BaseFragment {
                     });
         });
 
+    }
+
+    private void checkInput() {
+        logInButton.setEnabled(!editTextLogin.getText().toString().isEmpty() && !editTextPassword.getText().toString().isEmpty());
     }
 
     @Override

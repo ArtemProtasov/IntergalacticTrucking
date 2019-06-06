@@ -4,7 +4,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -12,13 +11,9 @@ import com.example.intergalactictrucking.R;
 import com.example.intergalactictrucking.base.BaseFragment;
 import com.example.intergalactictrucking.data.UserProfile;
 import com.example.intergalactictrucking.utils.UtilsDialog;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.UUID;
 
 public class RegistrationFragment extends BaseFragment {
 
@@ -75,12 +70,12 @@ public class RegistrationFragment extends BaseFragment {
                                 userProfile.setUserCompanyName(editTextinputNameCompany.getText().toString());
                                 databaseReference.child(firebaseAuth.getCurrentUser().getUid())
                                         .setValue(userProfile).addOnCompleteListener(task1 -> {
-                                            if(task.isSuccessful()) {
-                                                navController.navigate(R.id.action_registrationFragment_to_mainActivity);
-                                            } else {
-                                                UtilsDialog.showBasicDialog(getActivity(), "Ok", "Регистрация не удалась. Повторите попытку...").show();
-                                            }
-                                        });
+                                    if (task.isSuccessful()) {
+                                        navController.navigate(R.id.action_registrationFragment_to_mainActivity);
+                                    } else {
+                                        UtilsDialog.showBasicDialog(getActivity(), "Ok", "Регистрация не удалась. Повторите попытку...").show();
+                                    }
+                                });
                             } else {
                                 UtilsDialog.showBasicDialog(getActivity(), "Ok", "Регистрация не удалась. Повторите попытку...").show();
                             }

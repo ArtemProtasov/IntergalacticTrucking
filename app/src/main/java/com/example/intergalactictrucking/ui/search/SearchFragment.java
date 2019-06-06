@@ -46,7 +46,7 @@ public class SearchFragment extends BaseFragment {
         editTextshipmentdate = getView().findViewById(R.id.shipmentdate);
         buttonclean = getView().findViewById(R.id.clean);
         buttonsavefilters = getView().findViewById(R.id.savefilters);
-        buttonsearchshipments = getView().findViewById(R.id.searchshipments);
+        buttonsearchshipments = getView().findViewById(R.id.sendOrder);
 
         buttonsearchshipments.setOnClickListener(v -> {
 

@@ -1,6 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/whence"
+                android:layout_width="400dp"
+                android:layout_height="120dp"
+                android:hint="Откуда"
+                android:text=""
+                tools:layout_editor_absoluteX="5dp"
+                tools:layout_editor_absoluteY="10dp" />
+
+            <EditText
+                android:id="@+id/where"
+                android:layout_width="400dp"
+                android:layout_height="120dp"
+                android:hint="Куда"
+                android:text=""
+                tools:layout_editor_absoluteX="5dp"
+                tools:layout_editor_absoluteY="135dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/weight"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:hint="Вес,т"
+                    android:inputType="number"
+                    android:text=""
+                    tools:layout_editor_absoluteX="5dp"
+                    tools:layout_editor_absoluteY="260dp" />
+
+                <EditText
+                    android:id="@+id/volume"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:hint="Объем,м3"
+                    android:inputType="number"
+                    android:text=""
+                    tools:layout_editor_absoluteX="205dp"
+                    tools:layout_editor_absoluteY="260dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/bodytype"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:hint="Тип кузова"
+                    android:text=""
+                    tools:layout_editor_absoluteX="5dp"
+                    tools:layout_editor_absoluteY="365dp" />
+
+                <EditText
+                    android:id="@+id/shipmentdate"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:hint="Дата погрузки"
+                    android:inputType="date" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:hint="Стоимость перевозки, руб"/>
+
+            <Button
+                android:id="@+id/clean"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="Очистить"
+                android:textColor="#FF0000" />
+
+            <Button
+                android:id="@+id/sendOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#1E90FF"
+                android:text="Опубликовать заказ"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="5dp"
+                tools:layout_editor_absoluteY="650dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

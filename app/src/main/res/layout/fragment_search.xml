@@ -106,7 +106,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/searchshipments"
+            android:id="@+id/sendOrder"
             android:layout_width="400dp"
             android:layout_height="80dp"
             android:background="#1E90FF"
