@@ -24,9 +24,9 @@
         android:name="com.example.intergalactictrucking.ui.history.HistoryFragment"
         android:label="HistoryFragment" />
     <fragment
-        android:id="@+id/onCarFragment"
-        android:name="com.example.intergalactictrucking.ui.onCar.OnCarFragment"
-        android:label="OnCarFragment" />
+        android:id="@+id/addOrder"
+        android:name="com.example.intergalactictrucking.ui.orders.OrdersFragment"
+        android:label="OrdersFragment" />
     <activity
         android:id="@+id/authActivity"
         android:name="com.example.intergalactictrucking.ui.auth.AuthActivity"

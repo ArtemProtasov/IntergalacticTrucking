@@ -1,4 +1,4 @@
-package com.example.intergalactictrucking.ui.onCar;
+package com.example.intergalactictrucking.ui.orders;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -6,13 +6,13 @@ import androidx.navigation.Navigation;
 import com.example.intergalactictrucking.R;
 import com.example.intergalactictrucking.base.BaseFragment;
 
-public class OnCarFragment extends BaseFragment {
+public class OrdersFragment extends BaseFragment {
 
     private NavController navController;
 
     @Override
     protected int contentResource() {
-        return R.layout.fragment_oncar;
+        return R.layout.fragment_orders;
     }
 
     @Override
