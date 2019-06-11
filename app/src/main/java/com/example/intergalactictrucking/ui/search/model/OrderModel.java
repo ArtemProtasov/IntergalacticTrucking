@@ -27,7 +27,7 @@ public abstract class OrderModel extends EpoxyModelWithHolder<Holder> {
         holder.whence.setText(order.getFromWhere());
         holder.where.setText(order.getWhere());
         holder.cost.setText(order.getPrice());
-        holder.cost1.setText("TEEEEXT");
+       // holder.cost1.setText("TEEEEXT");
         holder.weight.setText(order.getWeight());
         holder.volume.setText(order.getVolume());
         holder.type.setText(order.getBodyType());
@@ -51,7 +51,7 @@ class Holder extends EpoxyHolder {
         whence = itemView.findViewById(R.id.whence);
         where = itemView.findViewById(R.id.where);
         cost = itemView.findViewById(R.id.cost);
-        cost1 = itemView.findViewById(R.id.cost1);
+       // cost1 = itemView.findViewById(R.id.cost1);
         weight = itemView.findViewById(R.id.weight);
         volume = itemView.findViewById(R.id.volume);
         type = itemView.findViewById(R.id.type);
