@@ -1,9 +1,12 @@
 package com.example.intergalactictrucking.ui.search;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -13,7 +16,6 @@ import com.airbnb.epoxy.EpoxyRecyclerView;
 import com.example.intergalactictrucking.R;
 import com.example.intergalactictrucking.base.BaseFragment;
 import com.example.intergalactictrucking.data.Order;
-import com.example.intergalactictrucking.data.OrderList;
 import com.example.intergalactictrucking.retrofit.RestController;
 import com.example.intergalactictrucking.utils.ErrorUtils;
 import com.example.intergalactictrucking.utils.UtilsDialog;
@@ -44,6 +46,8 @@ public class SearchFragment extends BaseFragment implements SearchController.Sea
     Button buttonsavefilters;
     Button buttonsearchshipments;
     EpoxyRecyclerView epoxyRecyclerViewOrders;
+    ImageButton imageButtonCloseOrders;
+    ConstraintLayout constraintLayoutOrders;
 
     private NavController navController;
     private FirebaseAuth firebaseAuth;
@@ -71,14 +75,19 @@ public class SearchFragment extends BaseFragment implements SearchController.Sea
         buttonsavefilters = getView().findViewById(R.id.savefilters);
         buttonsearchshipments = getView().findViewById(R.id.sendOrder);
         epoxyRecyclerViewOrders = getView().findViewById(R.id.epoxyRecyclerViewOrders);
+        imageButtonCloseOrders = getView().findViewById(R.id.imageButtonCloseOrders);
+        constraintLayoutOrders = getView().findViewById(R.id.constraintLayoutOrders);
+
 
         buttonsearchshipments.setOnClickListener(v -> {
+            getOrders();
+        });
 
+        imageButtonCloseOrders.setOnClickListener(v -> {
+            constraintLayoutOrders.setVisibility(View.GONE);
         });
 
         setupEpoxyController();
-
-        getOrders();
 
     }
 
@@ -99,7 +108,7 @@ public class SearchFragment extends BaseFragment implements SearchController.Sea
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                HashMap<String, HashMap<String, HashMap<String,String>>> hashMapDatabase = (HashMap<String, HashMap<String, HashMap<String, String>>>) dataSnapshot.getValue();
+                HashMap<String, HashMap<String, HashMap<String, String>>> hashMapDatabase = (HashMap<String, HashMap<String, HashMap<String, String>>>) dataSnapshot.getValue();
                 List<Order> orderList = new ArrayList<>();
                 // filter
                 for (HashMap<String, HashMap<String, String>> value1 : hashMapDatabase.values()) {
@@ -118,7 +127,15 @@ public class SearchFragment extends BaseFragment implements SearchController.Sea
                     }
                 }
 
-                searchController.setOrderList(orderList);
+                List<Order> filteredListOrder = filterOrders(orderList);
+
+                if (filteredListOrder.isEmpty()) {
+                    constraintLayoutOrders.setVisibility(View.GONE);
+                } else {
+                    constraintLayoutOrders.setVisibility(View.VISIBLE);
+                    searchController.setOrderList(filteredListOrder);
+                }
+
             }
 
             @Override
@@ -126,6 +143,23 @@ public class SearchFragment extends BaseFragment implements SearchController.Sea
 
             }
         });
+    }
+
+    private List<Order> filterOrders(List<Order> orderList) {
+        List<Order> filteredListOrder = new ArrayList<>();
+
+        for (Order order : orderList) {
+            if (order.getFromWhere().equals(editTextwhence.getText().toString()) ||
+                    order.getWhere().equals(editTextwhere.getText().toString()) ||
+                    order.getBodyType().equals(editTextbodytype.getText().toString()) ||
+                    order.getShipmentDate().equals(editTextshipmentdate.getText().toString()) ||
+                    order.getVolume().equals(editTextvolume.getText().toString())
+            ) {
+                filteredListOrder.add(order);
+            }
+        }
+
+        return filteredListOrder;
     }
 
     /**
