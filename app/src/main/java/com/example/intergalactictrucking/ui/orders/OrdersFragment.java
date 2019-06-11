@@ -1,5 +1,6 @@
 package com.example.intergalactictrucking.ui.orders;
 
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,6 +54,8 @@ public class OrdersFragment extends BaseFragment {
         editTextPrice = getView().findViewById(R.id.price);
         buttonCleanFields = getView().findViewById(R.id.clean);
         buttonSendOrder = getView().findViewById(R.id.sendOrder);
+
+        editTextVolume.setHint(Html.fromHtml( " Объем, м<sup>3</sup>"));
     }
 
     @Override
