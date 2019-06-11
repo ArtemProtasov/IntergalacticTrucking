@@ -19,6 +19,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegistrationFragment extends BaseFragment {
 
     private NavController navController;
@@ -221,6 +224,14 @@ public class RegistrationFragment extends BaseFragment {
                 !editTextinputCity.getText().toString().isEmpty() &&
                 (!editTextinputNameCompany.getText().toString().isEmpty() || checkBoxinputFace.isChecked()) &&
                 !editTextUserFullName.getText().toString().isEmpty() &&
-                !editTextUserPhoneNumber.getText().toString().isEmpty());
+                !editTextUserPhoneNumber.getText().toString().isEmpty() &&
+                isEmailValid(editTextinputLogin.getText().toString()));
+    }
+
+    public static boolean isEmailValid(String email) {
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 }
