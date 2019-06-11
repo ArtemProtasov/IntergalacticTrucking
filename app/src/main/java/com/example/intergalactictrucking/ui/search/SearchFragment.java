@@ -1,5 +1,6 @@
 package com.example.intergalactictrucking.ui.search;
 
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -77,6 +78,8 @@ public class SearchFragment extends BaseFragment implements SearchController.Sea
         epoxyRecyclerViewOrders = getView().findViewById(R.id.epoxyRecyclerViewOrders);
         imageButtonCloseOrders = getView().findViewById(R.id.imageButtonCloseOrders);
         constraintLayoutOrders = getView().findViewById(R.id.constraintLayoutOrders);
+
+        editTextvolume.setHint(Html.fromHtml( " Объем, м<sup>3</sup>"));
 
 
         buttonsearchshipments.setOnClickListener(v -> {
