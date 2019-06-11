@@ -153,7 +153,8 @@ public class SearchFragment extends BaseFragment implements SearchController.Sea
                     order.getWhere().equals(editTextwhere.getText().toString()) ||
                     order.getBodyType().equals(editTextbodytype.getText().toString()) ||
                     order.getShipmentDate().equals(editTextshipmentdate.getText().toString()) ||
-                    order.getVolume().equals(editTextvolume.getText().toString())
+                    order.getVolume().equals(editTextvolume.getText().toString()) ||
+                    order.getWeight().equals(editTextweight.getText().toString())
             ) {
                 filteredListOrder.add(order);
             }
