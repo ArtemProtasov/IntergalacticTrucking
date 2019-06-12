@@ -31,9 +31,11 @@ public abstract class OrderModel extends EpoxyModelWithHolder<Holder> {
         holder.where.setText(order.getWhere());
         holder.cost.setText(order.getPrice() + " руб.");
         holder.weight.setText(order.getWeight() + " т.");
-        holder.volume.setText( Html.fromHtml(order.getVolume() + " м<sup>3</sup>"));
+        holder.volume.setText(Html.fromHtml(order.getVolume() + " м<sup>3</sup>"));
         holder.type.setText(order.getBodyType());
         holder.date.setText(order.getShipmentDate());
+        holder.userName.setText(order.getUserName());
+        holder.userPhoneNumber.setText(order.getUserPhoneNumber());
     }
 }
 
@@ -46,6 +48,8 @@ class Holder extends EpoxyHolder {
     TextView volume;
     TextView type;
     TextView date;
+    TextView userName;
+    TextView userPhoneNumber;
 
     @Override
     protected void bindView(@NonNull View itemView) {
@@ -56,5 +60,7 @@ class Holder extends EpoxyHolder {
         volume = itemView.findViewById(R.id.volume);
         type = itemView.findViewById(R.id.type);
         date = itemView.findViewById(R.id.date);
+        userName = itemView.findViewById(R.id.userName);
+        userPhoneNumber = itemView.findViewById(R.id.userPhoneNumber);
     }
 }

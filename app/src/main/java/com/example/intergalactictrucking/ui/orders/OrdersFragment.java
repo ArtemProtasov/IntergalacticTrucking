@@ -1,7 +1,6 @@
 package com.example.intergalactictrucking.ui.orders;
 
 import android.text.Html;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -13,12 +12,14 @@ import com.example.intergalactictrucking.R;
 import com.example.intergalactictrucking.base.BaseFragment;
 import com.example.intergalactictrucking.data.Order;
 import com.example.intergalactictrucking.utils.UtilsDialog;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 public class OrdersFragment extends BaseFragment {
@@ -55,7 +56,7 @@ public class OrdersFragment extends BaseFragment {
         buttonCleanFields = getView().findViewById(R.id.clean);
         buttonSendOrder = getView().findViewById(R.id.sendOrder);
 
-        editTextVolume.setHint(Html.fromHtml( " Объем, м<sup>3</sup>"));
+        editTextVolume.setHint(Html.fromHtml(" Объем, м<sup>3</sup>"));
     }
 
     @Override
@@ -76,16 +77,33 @@ public class OrdersFragment extends BaseFragment {
             order.setShipmentDate(editTextShipmentDate.getText().toString());
             order.setPrice(editTextPrice.getText().toString());
 
-            databaseReference.child(firebaseAuth.getCurrentUser().getUid()).child(UUID.randomUUID().toString())
-                    .setValue(order).addOnCompleteListener(task -> {
-                        if(task.isSuccessful()) {
-                            UtilsDialog.showBasicDialog(getActivity(), "Ok", "Заказ успешно размещен!").show();
-                            clearData();
-                        } else {
-                            UtilsDialog.showBasicDialog(getActivity(), "Ok", "Произошла ошибка при попытке разместить заказ. Повторите попытку...").show();
+            database.getReference("userProfile")
+                    .child(firebaseAuth.getCurrentUser().getUid())
+                    .addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                            HashMap<String, String> userProfile = (HashMap<String, String>) dataSnapshot.getValue();
+
+                            order.setUserName(userProfile.get("userFullName"));
+                            order.setUserPhoneNumber(userProfile.get("userPhoneNumber"));
+
+                            databaseReference.child(firebaseAuth.getCurrentUser().getUid()).child(UUID.randomUUID().toString())
+                                    .setValue(order).addOnCompleteListener(task -> {
+                                if (task.isSuccessful()) {
+                                    UtilsDialog.showBasicDialog(getActivity(), "Ok", "Заказ успешно размещен!").show();
+                                    clearData();
+                                } else {
+                                    UtilsDialog.showBasicDialog(getActivity(), "Ok", "Произошла ошибка при попытке разместить заказ. Повторите попытку...").show();
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
                         }
                     });
-
         });
 
         buttonCleanFields.setOnClickListener(v -> {

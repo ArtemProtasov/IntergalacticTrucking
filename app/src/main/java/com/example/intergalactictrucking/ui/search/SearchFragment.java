@@ -126,6 +126,8 @@ public class SearchFragment extends BaseFragment implements SearchController.Sea
                         order.setWeight(value2.get("weight"));
                         order.setVolume(value2.get("volume"));
                         order.setDeliveryInProgress("true");
+                        order.setUserName(value2.get("userName"));
+                        order.setUserPhoneNumber(value2.get("userPhoneNumber"));
                         orderList.add(order);
                     }
                 }

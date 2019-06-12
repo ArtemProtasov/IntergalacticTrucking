@@ -4,9 +4,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.RadioGroup;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;

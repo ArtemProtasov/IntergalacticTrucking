@@ -14,6 +14,24 @@ public class Order {
     private String shipmentDate;
     private String price;
     private String deliveryInProgress;
+    private String userName;
+    private String userPhoneNumber;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserPhoneNumber() {
+        return userPhoneNumber;
+    }
+
+    public void setUserPhoneNumber(String userPhoneNumber) {
+        this.userPhoneNumber = userPhoneNumber;
+    }
 
     public String getUserId() {
         return userId;
